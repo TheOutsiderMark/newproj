@@ -1,38 +1,278 @@
-.App {
-  text-align: center;
+/* App.css */
+
+/* Reset default styles */
+body, h1, h2, h3, p, ul {
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: Arial, sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Common styles */
+.container-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+
+/* Header styles */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  font-weight: bold;
+}
+
+.search {
+  margin: 0 1rem;
+}
+
+.button {
+  padding: 0.5rem 1rem;
+  margin-left: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cart {
+  background-color: #eee;
+}
+
+.login {
+  background-color: #007bff;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* Content styles */
+.main-content {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  padding: 1rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Card styles */
+.product-card,
+.shopping-cart,
+.login-window,
+.register-window {
+  width: 300px;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+/* Form input styles */
+.product-card input[type="text"],
+.product-card input[type="password"],
+.register-window input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* Button styles */
+.product-card button,
+.shopping-cart button,
+.login-window button,
+.register-window button {
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.product-card .submit-button {
+  background-color: #007bff;
+  color: white;
+}
+
+.register-window .register-button {
+  background-color: #28a745;
+  color: white;
+}
+
+.product-card .back-button,
+.register-window .back-button {
+  background-color: transparent;
+  color: #007bff;
+}
+
+/* Button hover effects */
+.product-card .submit-button:hover {
+  background-color: #0056b3;
+}
+
+.register-window .register-button:hover {
+  background-color: #218838;
+}
+
+.product-card .back-button:hover,
+.register-window .back-button:hover {
+  text-decoration: underline;
+}
+
+/* Specific styles */
+.shopping-cart-container {
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.shopping-cart {
+  width: 400px;
+}
+
+.close-button {
+  background-color: #dc3545;
+  color: white;
+}
+
+.close-button:hover {
+  background-color: #c82333;
+}
+
+
+/* Styles for the LoginPage component */
+.login-container {
+  /* Use a trendy background image or color */
+  background: url('LoginPage111.avif') center/cover no-repeat; /* Replace 'your-background-image-url.jpg' with your image URL */
+  /* For color background: background-color: #f5f5f5; */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-window {
+  width: 350px;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.login-window h2 {
+  margin-bottom: 1.5rem;
+  color: #333; /* Text color */
+}
+
+.login-window input[type="text"],
+.login-window input[type="password"] {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #ccc; /* Input border color */
+  border-radius: 4px;
+  background-color: #f9f9f9; /* Input background color */
+  color: #333; /* Input text color */
+}
+
+.submit-button {
+  padding: 0.8rem 1rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #4285f4; /* Google Blue */
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.submit-button:hover {
+  background-color: #2a65f7; /* Darker shade on hover */
+}
+
+.back-button {
+  background-color: transparent;
+  color: #4285f4; /* Google Blue */
+  border: 1px solid #4285f4; /* Border matching button color */
+  padding: 0.8rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.back-button:hover {
+  background-color: rgba(66, 133, 244, 0.1); /* Light background on hover */
+}
+
+/* Additional styles for checkbox */
+label {
+  display: block;
+  margin-bottom: 1rem;
+  color: #666; /* Checkbox text color */
+}
+
+/* ... (existing styles) ... */
+
+.App {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  background-image: url('fastfood2.jpg'); /* Set the background image */
+  background-size: cover; /* Ensure the background image covers the entire area */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh; /* Set the height of the container to full viewport height */
+  position: relative; /* Enable positioning for child elements */
+}
+
+/* Styles for the logo image */
+.logo {
+  position: absolute;
+  top: 1px; /* Adjust the distance from the top */
+  left: 300px; /* Adjust the distance from the left */
+  transform: translateX(-50%); /* Center the logo horizontally */
+}
+
+.logo img {
+  width: 64px; /* Adjust the width of the image */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.product-card {
+  width: 250px;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border: 1px solid #ddd;
+  margin: 1rem; /* Margin between cards */
+}
+
+.product-card img {
+  width: 100%; /* Make the image fill the card */
+  border-radius: 8px; /* Ensure rounded corners for the image */
+}
+
+.shopping-cart img {
+  max-width: 100%; /* Set maximum width to 100% */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.product-card-clicked {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Example: Adding a box shadow */
+  /* or */
+  border: 2px solid #007bff; /* Example: Adding a border */
 }
