@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+
 
 const ProductCard = ({ id, title, description, price, image, onClick }) => {
   const [token, setToken] = useState(localStorage.getItem('Bearer ') || '');
-
+  const [isClicked, setIsClicked] = useState(false);
   useEffect(() => {
     // Обновление состояния при изменении значения в localStorage
     const handleStorageChange = () => {
