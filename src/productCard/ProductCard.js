@@ -1,7 +1,23 @@
 import React, { useState } from 'react';
 
 const ProductCard = ({ id, title, description, price, image, onClick }) => {
-  const [isClicked, setIsClicked] = useState(false);
+  const [token, setToken] = useState(localStorage.getItem('Bearer ') || '');
+
+  useEffect(() => {
+    // Обновление состояния при изменении значения в localStorage
+    const handleStorageChange = () => {
+      setToken(localStorage.getItem('Bearer ') || '');
+    };
+
+    // Подписка на событие изменения localStorage
+    window.addEventListener('storage', handleStorageChange);
+
+    // Отписка от события при размонтировании компонента
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
+  }, []);
+
 
   const handleAddToCart = () => {
     setIsClicked(true); // Set the card as clicked
@@ -20,5 +36,4 @@ const ProductCard = ({ id, title, description, price, image, onClick }) => {
     </div>
   );
 };
-
 export default ProductCard;

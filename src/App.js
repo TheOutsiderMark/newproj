@@ -24,12 +24,26 @@ const Header = ({ onLoginClick, onCartClick, onSearch }) => (
   </header>
 );
 
+
 function App() {
   const [showLogin, setShowLogin] = useState(false);
   const [showCart, setShowCart] = useState(false);
   const [showRegister, setShowRegister] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+
+ /* const { createProxyMiddleware } = require('http-proxy-middleware');
+
+module.exports = function(app) {
+  app.use(
+    '/api',
+    createProxyMiddleware({
+      target: 'http://localhost:8080',
+      changeOrigin: true,
+    })
+  );
+};
+*/
 
   const products = [
     { id: 1, title: 'Burger', description: 'Delicious burger with cheese and veggies', price: 9.99, image: burgerImage },
