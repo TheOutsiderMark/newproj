@@ -22,7 +22,7 @@ function tokenComponent() {
 
   // Update token when needed
   const handleUpdateToken = () => {
-    const newToken = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb3lzdGljazIyOEBnbWFpbC5jb20iLCJpYXQiOjE3MDE3ODI5MzAsImV4cCI6MTcwMTc4NDEzMH0.MJloZUyawqz4q9vTtkulEbTnVWX7ciBAROV8h2hy_cY'; // Replace with the new token
+    const newToken = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjNqc0BtYWlsLnJ1IiwiaWF0IjoxNzAxODE4NzQ2LCJleHAiOjE3MDE4MTk5NDZ9.i2KPTP4g4QDTOQVioemsC1AGTiL7sZjI58QA47ZtCHI'; // Replace with the new token
     updateToken(newToken);
   };
 
