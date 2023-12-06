@@ -228,7 +228,7 @@ label {
 
 /* ... (existing styles) ... */
 
-.App {
+body {
   font-family: Arial, sans-serif;
   text-align: center;
   margin: 0;

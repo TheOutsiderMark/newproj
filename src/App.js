@@ -4,15 +4,10 @@ import ShoppingCart from './cartPage/ShoppingCart';
 import LoginPage from './loginPage/LoginPage';
 import RegisterPage from './regPage/RegistrationPage';
 import ProductCard from './productCard/ProductCard';
-import fastFoodLogo from './images/fastfoodlogo.jpg';
-import burgerImage from './images/burger1.jpg';
-import pizzaImage from './images/pizza1.jpg';
-import friesImage from './images/fries1.jpg';
-import colaImage from './images/cola.jpg';
-import kebabImage from './images/kebab.jpg';
-import shashlikImage from './images/shashlik.jpg';
-import beerImage from './images/pivo.jpg';
-import borschImage from './images/borsch.jpeg';
+import fastFoodLogo from './fastfoodlogo.jpg';
+import burgerImage from './burger1.jpg';
+import pizzaImage from './pizza1.jpg';
+import friesImage from './fries1.jpg';
 
 const Header = ({ onLoginClick, onCartClick, onSearch }) => (
   <header className="header">
@@ -51,15 +46,6 @@ function App() {
  */
 
   const products = [
-    { id: 1, title: 'Burger', description: 'Delicious burger with cheese and veggies', price: 9.99, image: burgerImage },
-    { id: 2, title: 'Pizza', description: 'Tasty pizza with assorted toppings', price: 12.99, image: pizzaImage },
-    { id: 3, title: 'Fries', description: 'Crispy french fries served with ketchup', price: 5.99, image: friesImage },
-    { id: 4, title: 'Cola', description: 'Koka kola', price: 0.99, image: colaImage },
-    { id: 5, title: 'Kebab', description: 'Ebaaa mikti kebab brat', price: 2.99, image: kebabImage },
-    { id: 6, title: 'Shashlik', description: 'Shashlik-Mashlik ot Armena', price: 6.99, image: shashlikImage },
-    { id: 7, title: 'Borsch', description: 'Blya budu ahujennij borsch', price: 10.99, image: borschImage },
-    { id: 8, title: 'Beer', description: 'Eto vam ne siska branika', price: 0.99, image: beerImage },
-    // ... Add more products with titles, descriptions, prices, and images
   ];
 
   const handleAddToCart = (selectedProduct) => {
