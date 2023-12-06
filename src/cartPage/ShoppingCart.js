@@ -25,7 +25,6 @@ const ShoppingCart = ({ onClose, cartItems }) => {
         <ul>
           {cartItems.map((item, index) => (
             <li key={index}>
-              <img src={item.image} alt={item.title} />
               <div>
                 <h3>{item.title}</h3>
                 <p>Description: {item.description}</p>
