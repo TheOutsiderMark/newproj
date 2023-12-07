@@ -14,10 +14,10 @@ const Header = ({ onLoginClick, onCartClick, onSearch }) => (
     <div className="logo">
       <img src={fastFoodLogo} alt="Fast Food Logo" />
     </div>
-    <input className="search" 
-    type="text" 
-    placeholder="Searching" 
-    onChange={(e) => onSearch(e.target.value)}
+    <input className="search"
+      type="text"
+      placeholder="Searching"
+      onChange={(e) => onSearch(e.target.value)}
     />
     <button className="button cart" onClick={onCartClick}>Shopping cart</button>
     <button className="button login" onClick={onLoginClick}>Login</button>
@@ -32,30 +32,26 @@ function App() {
   const [cartItems, setCartItems] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
 
- /* const { createProxyMiddleware } = require('http-proxy-middleware');
-
-module.exports = function(app) {
-  app.use(
-    '/api',
-    createProxyMiddleware({
-      target: 'http://localhost:8080',
-      changeOrigin: true,
-    })
-  );
-};
-*/
+  /* const { createProxyMiddleware } = require('http-proxy-middleware');
+ 
+ module.exports = function(app) {
+   app.use(
+     '/api',
+     createProxyMiddleware({
+       target: 'http://localhost:8080',
+       changeOrigin: true,
+     })
+   );
+ };
+ */
 
   const products = [
-    { id: 1, title: 'Burger', description: 'Delicious burger with cheese and veggies', price: 9.99, image: burgerImage },
-    { id: 2, title: 'Pizza', description: 'Tasty pizza with assorted toppings', price: 12.99, image: pizzaImage },
-    { id: 3, title: 'Fries', description: 'Crispy french fries served with ketchup', price: 5.99, image: friesImage },
-    // ... Add more products with titles, descriptions, prices, and images
   ];
 
   const handleAddToCart = (selectedProduct) => {
     setCartItems([...cartItems, selectedProduct]);
   };
-  
+
   const handleSearch = (searchValue) => {
     setSearchTerm(searchValue);
   };
@@ -74,7 +70,7 @@ module.exports = function(app) {
             onSearch={handleSearch}
           />
           <main className="main-content">
-          {filteredProducts.map(product => (
+            {filteredProducts.map(product => (
               <ProductCard
                 key={product.id}
                 {...product}
