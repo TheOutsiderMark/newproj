@@ -1,38 +1,31 @@
 import React, { useState } from 'react';
 
-const AdminPage = () => {
+const AdminPage = ({ onClose }) => {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
-const [surname, setSurname] = useState('');
-
+  const [surname, setSurname] = useState('');
   const [foundUser, setFoundUser] = useState(null);
 
   const handleSearch = async (event) => {
     event.preventDefault();
 
     try {
-      const response = await fetch(`http://localhost:8080/api/v1/users`, {
+      const response = await fetch(`http://localhost:8080/api/v1/users?email=${email}&name=${name}&surname=${surname}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          // Другие необходимые заголовки, например, авторизация с помощью токена
+          // Other necessary headers, such as authorization using a token
         },
-        body: JSON.stringify({
-          email,
-          name,
-          surname
-        })
       });
 
       if (!response.ok) {
-
         throw new Error('Network response was not ok');
       }
 
       const userData = await response.json();
       setFoundUser(userData);
       console.log('Found user:', userData);
-      // Дополнительные действия после успешного поиска пользователя
+      // Additional actions after successfully finding the user
     } catch (error) {
       console.error('Error searching for user:', error);
     }
@@ -43,13 +36,14 @@ const [surname, setSurname] = useState('');
       <div className="admin-window">
         <h2>Admin Page</h2>
         <form onSubmit={handleSearch}>
-
-        <input name = "name" type="text" placeholder="name" value={name} onChange={(e) => setName(e.target.value)} />
-        <input name = "surname" type="text" placeholder="surname" value={surname} onChange={(e) => setSurname(e.target.value)} />
-        <input name="email" type="text" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-      
+          <input name="name" type="text" placeholder="name" value={name} onChange={(e) => setName(e.target.value)} />
+          <input name="surname" type="text" placeholder="surname" value={surname} onChange={(e) => setSurname(e.target.value)} />
+          <input name="email" type="text" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
           <button type="submit" className="search-button">
             Search
+          </button>
+          <button onClick={onClose} className="close-button">
+            Close
           </button>
         </form>
         {foundUser && (
@@ -58,7 +52,7 @@ const [surname, setSurname] = useState('');
             <p>Name: {foundUser.name}</p>
             <p>Email: {foundUser.email}</p>
             <p>Surname: {foundUser.surname}</p>
-            {/* Дополнительные данные о пользователе */}
+            {/* Additional user data */}
           </div>
         )}
       </div>

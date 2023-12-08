@@ -2,16 +2,15 @@ import React, { useState } from 'react';
 import './App.css';
 import './mainPage/mainPage.js';
 
+
 import ShoppingCart from './cartPage/ShoppingCart';
 import LoginPage from './loginPage/LoginPage';
 import RegisterPage from './regPage/RegistrationPage';
 import ProductCard from './productCard/ProductCard';
-import fastFoodLogo from './fastfoodlogo.jpg';
-import burgerImage from './burger1.jpg';
-import pizzaImage from './pizza1.jpg';
-import friesImage from './fries1.jpg';
+import fastFoodLogo from './images/fastfoodlogo.jpg';
+import AdminPage from './AdminPage/adminPage';
 
-const Header = ({ onLoginClick, onCartClick, onSearch }) => (
+const Header = ({ onLoginClick, onCartClick, onSearch, onAdminClick }) => (
   <header className="header">
     <div className="logo">
       <img src={fastFoodLogo} alt="Fast Food Logo" />
@@ -23,6 +22,7 @@ const Header = ({ onLoginClick, onCartClick, onSearch }) => (
     />
     <button className="button cart" onClick={onCartClick}>Shopping cart</button>
     <button className="button login" onClick={onLoginClick}>Login</button>
+    <button className = "button admin" onClick = {onAdminClick}>Admin</button>
   </header>
 );
 
@@ -33,6 +33,7 @@ function App() {
   const [showRegister, setShowRegister] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [showAdmin, setShowAdmin] = useState(false);
 
   /* const { createProxyMiddleware } = require('http-proxy-middleware');
  
@@ -64,12 +65,13 @@ function App() {
 
   return (
     <div className="App">
-      {!showLogin && !showCart && !showRegister && (
+      {!showLogin && !showCart && !showRegister && !showAdmin && (
         <>
           <Header
             onLoginClick={() => setShowLogin(true)}
             onCartClick={() => setShowCart(true)}
             onSearch={handleSearch}
+            onAdminClick={() => setShowAdmin(true)}
           />
           <main className="main-content">
             {filteredProducts.map(product => (
@@ -101,6 +103,9 @@ function App() {
 
       {showRegister && (
         <RegisterPage onBack={() => setShowRegister(false)} />
+      )}
+{showAdmin && (
+        <AdminPage onBack={() => setShowAdmin(false)} />
       )}
     </div>
   );
